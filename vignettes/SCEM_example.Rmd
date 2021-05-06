@@ -1,5 +1,5 @@
 ---
-title: "SSCEM usage example"
+title: "SCEM_example"
 author: "Kyung Serk Cho"
 output: rmarkdown::html_vignette
 vignette: >
