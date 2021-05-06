@@ -45,8 +45,8 @@ produced through intra-individual sampling in isotopic analysis. One can
 use the function `SCEM.R` to implement this method.
 
 Example of implementing the above methods for our data (provided as
-`armenia-data.csv`) can be found in `Usage-Example.R`. Other functions
-in this repository are used internally in the above-mentioned functions.
+`armenia`) can be found in vignettes folder. Other functions in this
+repository are used internally in the above-mentioned functions.
 
 ## Contact
 
