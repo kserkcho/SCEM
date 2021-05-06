@@ -6,7 +6,10 @@
 #'
 #' @param data A data frame that contains the data for one individual. There should be two columns
 #' with names 'distance' and 'oxygen'.
+#'
 #' @export
+#'
+#' @import stats
 #'
 #' @return A fitted model object from the nls function in R.
 

@@ -10,6 +10,10 @@
 #'
 #' @export
 #'
+#' @import stats
+#'
+#'
+#'
 #' @return A data frame with the estimated parameters in the model, birth seasonality estimate,
 #' predicted/observed minimum/maximum for the oxygen isotope variable, mean squared error
 #' and Pearson's R^2 corresponding to the model fit for every individual.

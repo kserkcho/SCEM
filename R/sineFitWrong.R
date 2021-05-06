@@ -13,6 +13,8 @@
 #'
 #' @export
 #'
+#' @import stats
+#'
 #' @return A fitted model object from the nls function in R.
 
 sineFitWrong = function(data,

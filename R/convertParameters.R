@@ -8,6 +8,8 @@
 #'
 #' @export
 #'
+#' @import stats
+#'
 #' @return A list of estimated parameters for the cosine model.
 
 convertParameters = function(curve) {
