@@ -3,57 +3,58 @@
 
 # SCEM
 
-<!-- badges: start -->
-<!-- badges: end -->
+R scripts to perform the Splitting-Coalescence-Estimation Method
+(cf. Chazin et al., 2018) to model birth seasonality in studies of herd
+animals.
 
-The goal of SCEM is to …
+## Authors
 
-## Installation
+[Hannah Chazin](http://www.hannah-chazin.com/), [Soudeep
+Deb](http://soudeepd.github.io/), [Joshua
+Falk](http://home.uchicago.edu/~jsfalk/), Arun Srinivasan
 
-You can install the released version of SCEM from
-[CRAN](https://CRAN.R-project.org) with:
+## Methods
 
-``` r
-install.packages("SCEM")
-```
+We introduce improved methods for statistically assessing birth
+seasonality and intra-annual variation in δ<sup>18</sup>O from faunal
+tooth enamel.
 
-## Example
+The first method estimates input parameters for use with a
+previously-developed parametric approach (Tornero et al., 2013). The
+relevant code for this approach is `makeFits.R`, while `makeFitsWrong.R`
+is the code to implement the same method but with given initial
+conditions for two parameters. The latter can be used to show the
+disadvantage of the existing approach.
 
-This is a basic example which shows you how to solve a common problem:
+The second method we propose is a new idea that uses a nonparametric
+clustering procedure to group individuals with similar time series data
+and estimate birth seasonality based on the clusters. This method is
+more efficient across different scenarios, especially when less of the
+tooth row is preserved. The new approach offers a high level of
+statistical rigor and flexibility in dealing with the time series data
+produced through intra-individual sampling in isotopic analysis. One can
+use the function `SCEM.R` to implement this method.
 
-``` r
-library(SCEM)
-#> 
-#> Attaching package: 'SCEM'
-#> The following object is masked from 'package:stats':
-#> 
-#>     kernel
-## basic example code
-```
+Example of implementing the above methods for our data (provided as
+`armenia-data.csv`) can be found in `Usage-Example.R`. Other functions
+in this repository are used internally in the above-mentioned functions.
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## Contact
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+For any inquiries or questions related to this, please open an issue in
+this repository. You can also contact us at
+[h.chazin@columbia.edu](h.chazin@columbia.edu) or
+[sdeb@uchicago.edu](sdeb@uchicago.edu).
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+## Reference
 
-You can also embed plots, for example:
+Chazin, H., Deb, S., Falk, J., and Srinivasan, A. (2018) New Statistical
+Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth
+Seasonality in Studies of Herd Animals. Archaeometry,
+<https://doi.org/10.1111/arcm.12432>.
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+Tornero, C., Bălăşescu, A., Ughetto-Monfrin, J., Voinea, V., Balasse,
+M., 2013. Seasonality and season of birth in early Eneolithic sheep from
+Cheia (Romania): methodological advances and implications for animal
+economy. Journal of Archaeological Science 40, 4039–4055.
+<https://doi.org/10.1016/j.jas.2013.05.013>
