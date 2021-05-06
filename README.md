@@ -3,9 +3,9 @@
 
 # SCEM
 
-R scripts to perform the Splitting-Coalescence-Estimation Method
-(cf. Chazin et al., 2018) to model birth seasonality in studies of herd
-animals.
+This package is build to perform the Splitting-Coalescence-Estimation
+Method (cf. Chazin et al., 2018) to model birth seasonality in studies
+of herd animals.
 
 # SCEM
 
@@ -50,8 +50,9 @@ in this repository are used internally in the above-mentioned functions.
 
 ## Contact
 
-For any inquiries or questions related to this, please open an issue in
-this repository. You can also contact us at
+For any inquiries or questions related to the package, please contact
+[kyslf1994@gmail.com](kyslf1994@gmail.com). Regarding questions about
+methodology, you can also contact us at
 [h.chazin@columbia.edu](h.chazin@columbia.edu) or
 [sdeb@uchicago.edu](sdeb@uchicago.edu).
 
