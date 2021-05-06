@@ -1,6 +1,6 @@
 Package: SCEM
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Splitting-Coalescence-Estimation Method
 Version: 0.1.0
 Author: Hannah Chazin, Soudeep Deb, Joshua Falk, Arun Srinivasan
 Maintainer: Kyung Serk Cho <kyslf1994@gmail.com>
