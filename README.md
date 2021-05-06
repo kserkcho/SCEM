@@ -7,6 +7,15 @@ R scripts to perform the Splitting-Coalescence-Estimation Method
 (cf. Chazin et al., 2018) to model birth seasonality in studies of herd
 animals.
 
+# SCEM
+
+You can install the latest version of SCEM by using the following
+command:
+
+``` r
+devtools::install_github("kserkcho/SCEM")
+```
+
 ## Authors
 
 [Hannah Chazin](http://www.hannah-chazin.com/), [Soudeep
