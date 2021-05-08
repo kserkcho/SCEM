@@ -17,6 +17,8 @@
 #' information (ID, species, number of observations in the time series), cluster assignment, estimated
 #' period, delay and the birth seasonality estimate for every individual. The list of vectors gives the
 #' groups formed by the clustering algorithm in the method.
+#'
+#' @references H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," archaeometry Volume 61, Issue 2
 
 
 SCEM <- function(paths,

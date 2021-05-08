@@ -17,9 +17,7 @@ Archaeological faunal remains (24 sheep second molars) from Late Bronze Age (150
     \item{\code{oxygen}}{a numeric vector}
   }
 }
-\details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
+
 \source{
 H. Chazin, S. Deb, J Falk and A. SRINIVASAN
 }

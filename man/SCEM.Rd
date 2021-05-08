@@ -25,3 +25,6 @@ one series is for the distance from the cementum-enamel junction, and the other 
 the value of the oxygen-18 isotope at that distance - and returns the class-assignments and
 birth seasobality estimates for all the individuals.
 }
+\references{
+H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," archaeometry Volume 61, Issue 2
+}
