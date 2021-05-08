@@ -22,7 +22,7 @@ Archaeological faunal remains (24 sheep second molars) from Late Bronze Age (150
 H. Chazin, S. Deb, J Falk and A. SRINIVASAN
 }
 \references{
-H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," archaeometry Volume 61, Issue 2
+H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," Archaeometry Volume 61, Issue 2
 }
 \examples{
 data(armenia)
