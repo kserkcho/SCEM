@@ -5,7 +5,7 @@
 Armenia dataset
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of the dataset. ~~
+Archaeological faunal remains (24 sheep second molars) from Late Bronze Age (1500–1100 BCE) sites in the Tsaghkahovit Plain, Armenia
 }
 \usage{data("armenia")}
 \format{
@@ -21,13 +21,12 @@ Armenia dataset
 %%  ~~ If necessary, more details than the __description__ above ~~
 }
 \source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
+H. Chazin, S. Deb, J Falk and A. SRINIVASAN
 }
 \references{
-%%  ~~ possibly secondary sources and usages ~~
+H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," archaeometry Volume 61, Issue 2
 }
 \examples{
 data(armenia)
-## maybe str(armenia) ; plot(armenia) ...
 }
 \keyword{datasets}
