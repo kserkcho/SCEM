@@ -18,6 +18,7 @@
 #' period, delay and the birth seasonality estimate for every individual. The list of vectors gives the
 #' groups formed by the clustering algorithm in the method.
 
+
 SCEM <- function(paths,
                  bandwidth){
 
