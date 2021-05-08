@@ -2,7 +2,7 @@
 \alias{armenia}
 \docType{data}
 \title{
-%%   ~~ data name/kind ... ~~
+Armenia dataset
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
