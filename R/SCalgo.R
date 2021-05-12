@@ -12,6 +12,12 @@
 #'
 #' @return A list of vectors where each vector gives the indexes of the individuals to be assigned
 #' in the same cluster.
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' band = -0.33
+#' results = SCalgo(armenia_split,bandwidth = band)
+
 
 SCalgo <- function(paths,
                    bandwidth){

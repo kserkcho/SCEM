@@ -14,10 +14,8 @@ should be two columns with names 'distance' and 'oxygen'.}
 (SC) clustering algorithm. A value k will mean that the bandwidth used in the algorithm is n^k.}
 }
 \value{
-A list that contains a data frame and a list of vectors. The data frame has the individual
-information (ID, species, number of observations in the time series), cluster assignment, estimated
-period, delay and the birth seasonality estimate for every individual. The list of vectors gives the
-groups formed by the clustering algorithm in the method.
+\item{results}{A data frame that has the individual information (ID, species, number of observations in the time series), cluster assignment, estimated period, delay and the birth seasonality estimate for every individual.}
+\item{groups}{The groups formed by the clustering algorithm}
 }
 \description{
 Performs the clustering algorithm SCEM on the bivariate time series data - where
@@ -25,6 +23,10 @@ one series is for the distance from the cementum-enamel junction, and the other 
 the value of the oxygen-18 isotope at that distance - and returns the class-assignments and
 birth seasobality estimates for all the individuals.
 }
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+results = SCEM(armenia_split,bandwidth = -0.33)
+}
 \references{
-H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," archaeometry Volume 61, Issue 2
+Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019. “New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.” Archaeometry 61 (2): 478–93.
 }

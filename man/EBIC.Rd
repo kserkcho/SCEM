@@ -23,3 +23,9 @@ Value of the extended BIC function for the partition.
 This function calculates an extended version of BIC, which is computed using
 a particular weighted average of the total residual sum of squares and the number of clusters.
 }
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+band = -0.33
+p = length(armenia_split)
+EBIC(armenia_split,1:p,band)
+}

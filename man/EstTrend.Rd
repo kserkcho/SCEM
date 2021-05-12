@@ -22,3 +22,11 @@ The trend function for each individual time series is estimated non-parametrical
 by the local linear estimate (as discussed in Fan and Gijbels (1996)). Detailed description can
 be found in the supplementary file of the paper.
 }
+\examples{
+ armenia_split = split(armenia,f = armenia$ID)
+ band = -0.33
+ z = armenia_split[[1]]$oxygen
+ n = length(z)
+ ndx = (1:n)/n
+ EstTrend(z,ndx,band)
+}

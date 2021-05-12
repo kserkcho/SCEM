@@ -13,8 +13,16 @@
 #'
 #' @export
 #'
-#' @return A list of two sets - the first one is a cluster and the second one is the set of
-#' individuals to be used in the next iteration.
+#' @returns
+#'   \item{S1}{A set of individuals who are in the cluster}
+#'   \item{U}{A set of individuals to be used in the next iteration.}
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' band = -0.33
+#' p = length(armenia_split)
+#' iteration(armenia_split,1:p,band)
+
 
 iteration <- function(paths,
                       U,

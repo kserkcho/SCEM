@@ -15,6 +15,12 @@
 #' @export
 #'
 #' @return Value of the extended BIC function for the partition.
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' band = -0.33
+#' p = length(armenia_split)
+#' EBIC(armenia_split,1:p,band)
 
 EBIC <- function(paths,
                  partition,

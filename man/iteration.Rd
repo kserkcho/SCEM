@@ -17,9 +17,15 @@ to individuals considered in one group.}
 bandwidth = k will mean that the bandwidth is n^k.}
 }
 \value{
-A list of two sets - the first one is a cluster and the second one is the set of
-individuals to be used in the next iteration.
+\item{S1}{A set of individuals who are in the cluster}
+  \item{U}{A set of individuals to be used in the next iteration.}
 }
 \description{
 This function performs the iterative step in the proposed method.
+}
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+band = -0.33
+p = length(armenia_split)
+iteration(armenia_split,1:p,band)
 }

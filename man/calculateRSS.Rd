@@ -26,3 +26,9 @@ function for the group is estimated by taking the average over the group. Next, 
 are estimated as the differences from the individual trend functions and finally, the residual sum
 of squares are calculated  using the original values, the common trend functions and the shifts.
 }
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+band = -0.33
+p = length(armenia_split)
+calculateRSS(armenia_split,1:p,band)
+}

@@ -18,6 +18,12 @@
 #'
 #' @return A vector of length equal to the group-size, so that each element is the RSS for the
 #' corresponding individual in the group.
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' band = -0.33
+#' p = length(armenia_split)
+#' calculateRSS(armenia_split,1:p,band)
 
 calculateRSS <- function(paths,
                          S,

@@ -13,12 +13,16 @@
 #'
 #' @export
 #'
-#' @return A list that contains a data frame and a list of vectors. The data frame has the individual
-#' information (ID, species, number of observations in the time series), cluster assignment, estimated
-#' period, delay and the birth seasonality estimate for every individual. The list of vectors gives the
-#' groups formed by the clustering algorithm in the method.
+#' @returns
 #'
-#' @references H. Chazin, S. Deb, J Falk and A. SRINIVASAN (2018) "New Statistical Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals," archaeometry Volume 61, Issue 2
+#' \item{results}{A data frame that has the individual information (ID, species, number of observations in the time series), cluster assignment, estimated period, delay and the birth seasonality estimate for every individual.}
+#' \item{groups}{The groups formed by the clustering algorithm}
+#'
+#' @references Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019. “New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.” Archaeometry 61 (2): 478–93.
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' results = SCEM(armenia_split,bandwidth = -0.33)
 
 
 SCEM <- function(paths,

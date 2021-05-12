@@ -20,3 +20,8 @@ in the same cluster.
 \description{
 Performs the iterative clustering algorithm on the archaeological time series data.
 }
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+band = -0.33
+results = SCalgo(armenia_split,bandwidth = band)
+}

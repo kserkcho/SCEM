@@ -14,6 +14,14 @@
 #' @export
 #'
 #' @return A vector of estimated values for the trend function at the given time-points.
+#'
+#' @examples
+#'  armenia_split = split(armenia,f = armenia$ID)
+#'  band = -0.33
+#'  z = armenia_split[[1]]$oxygen
+#'  n = length(z)
+#'  ndx = (1:n)/n
+#'  EstTrend(z,ndx,band)
 
 EstTrend <- function(y,
                      time,
