@@ -4,7 +4,7 @@
 # SCEM
 
 This package is build to perform the Splitting-Coalescence-Estimation
-Method (cf. Chazin et al., 2018) to model birth seasonality in studies
+Method (cf. Chazin et al., 2019) to model birth seasonality in studies
 of herd animals.
 
 ## Installation
@@ -44,6 +44,15 @@ statistical rigor and flexibility in dealing with the time series data
 produced through intra-individual sampling in isotopic analysis. One can
 use the function `SCEM.R` to implement this method.
 
+When using the SCEM to estimate birth seasonality values, it is
+important to keep two things in mind: 1) While the non-parametric
+clustering procedure is valid for any kind of time series data, the
+estimation of birth seasonality is semi-parametric and will not return
+valid results for non-sinusoidal time series; 2) A simulation study
+suggests that the SCEM provides accurate estimates of birth seasonality
+in second molars as long as the tooth enamel has more than 50% of the
+original crown height present (Chazin et al. 2019, Table 1).
+
 Example of implementing the above methods for our data (provided as
 `armenia`) can be found in vignettes folder or
 <https://kserkcho.github.io/SCEM/>. Other functions in this repository
@@ -59,10 +68,10 @@ methodology, you can also contact us at
 
 ## Reference
 
-Chazin, H., Deb, S., Falk, J., and Srinivasan, A. (2018) New Statistical
-Approaches to Intra‐individual Isotopic Analysis and Modelling of Birth
-Seasonality in Studies of Herd Animals. Archaeometry,
-<https://doi.org/10.1111/arcm.12432>.
+Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019.
+“New Statistical Approaches to Intra-Individual Isotopic Analysis and
+Modeling Birth Seasonality in Studies of Herd Animals.” Archaeometry 61
+(2): 478–93. <https://doi.org/10.1111/arcm.12432>.
 
 Tornero, C., Bălăşescu, A., Ughetto-Monfrin, J., Voinea, V., Balasse,
 M., 2013. Seasonality and season of birth in early Eneolithic sheep from
