@@ -11,7 +11,24 @@
 #'
 #' @import stats
 #'
-#' @return A fitted model object from the nls function in R.
+#' @returns
+#'
+#' A fitted model object from the nls function in R:
+#'
+#' \item{m}{an 'nlsModel' object incorporating the model.}
+#' \item{convInfo}{a list with convergence information}
+#' \item{data}{the expression that was passed to 'nls' as the data argument. The actual data values are present in the environment of the 'm' component.}
+#' \item{call}{the matched call with several components, notably 'algorithm'}
+#' \item{dataClasses}{the '"dataClasses"' attribute (if any) of the '"terms"' attribute of the model frame.}
+#' \item{control}{the control 'list' used}
+#'
+#' @references
+#'
+#' Florent Baty, Christian Ritz, Sandrine Charles, Martin Brutsche, Jean-Pierre Flandrois, Marie-Laure Delignette-Muller (2015). A Toolbox for Nonlinear Regression in R: The Package nlstools. Journal of Statistical Software, 66(5), 1-21. URL http://www.jstatsoft.org/v66/i05/.
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' sineFit(armenia_split[[1]])
 
 sineFit = function(data) {
 

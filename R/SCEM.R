@@ -15,6 +15,8 @@
 #'
 #' @returns
 #'
+#' A list containing the following components:
+#'
 #' \item{results}{A data frame that has the individual information (ID, species, number of observations in the time series), cluster assignment, estimated period, delay and the birth seasonality estimate for every individual.}
 #' \item{groups}{The groups formed by the clustering algorithm}
 #'

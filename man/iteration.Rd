@@ -17,7 +17,9 @@ to individuals considered in one group.}
 bandwidth = k will mean that the bandwidth is n^k.}
 }
 \value{
-\item{S1}{A set of individuals who are in the cluster}
+A list containing the following components:
+
+  \item{S1}{A set of individuals who are in the cluster}
   \item{U}{A set of individuals to be used in the next iteration.}
 }
 \description{

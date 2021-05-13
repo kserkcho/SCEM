@@ -2,7 +2,7 @@
 % Please edit documentation in R/kernel.R
 \name{kernel}
 \alias{kernel}
-\title{Epanechnikov kernel.}
+\title{Epanechnikov kernel}
 \usage{
 kernel(v)
 }
@@ -14,4 +14,12 @@ A vector of the calculated kernel values for the input vector.
 }
 \description{
 Calculates the value of the Epanechnikov kernel function for any vector.
+}
+\examples{
+x = runif(10)
+kernel(x)
+
+}
+\references{
+Epanechnikov, V. A. (1969). Non-parametric estimation of a multivariate probability density. Theory of Probability and its Applications, 14(1), 153-6.
 }

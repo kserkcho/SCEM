@@ -1,4 +1,4 @@
-#' @title Epanechnikov kernel.
+#' @title Epanechnikov kernel
 #'
 #' @description Calculates the value of the Epanechnikov kernel function for any vector.
 #'
@@ -7,6 +7,13 @@
 #' @export
 #'
 #' @return A vector of the calculated kernel values for the input vector.
+#'
+#' @examples
+#' x = runif(10)
+#' kernel(x)
+#'
+#' @references
+#' Epanechnikov, V. A. (1969). Non-parametric estimation of a multivariate probability density. Theory of Probability and its Applications, 14(1), 153-6.
 
 kernel <- function(v){
 

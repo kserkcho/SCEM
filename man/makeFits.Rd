@@ -11,13 +11,27 @@ makeFits(paths)
 data frame should have two columns with names 'distance' and 'oxygen'.}
 }
 \value{
-A data frame with the estimated parameters in the model, birth seasonality estimate,
-predicted/observed minimum/maximum for the oxygen isotope variable, mean squared error
-and Pearson's R^2 corresponding to the model fit for every individual.
+A data frame containing the following components:
+
+\item{amplitude}{estimated amplitude}
+\item{intercept}{estimated intercept}
+\item{x0}{I am not sure}
+\item{X}{I am not sure}
+\item{birth}{birth seasonality estimate}
+\item{predictedMin}{predicted minimum for the oxygen isotope variable}
+\item{predictedMax}{predicted maximum for the oxygen isotope variable}
+\item{observedMin}{observed minimum for the oxygen isotope variable}
+\item{observedMax}{observed minimum for the oxygen isotope variable}
+\item{MSE}{mean squared error corresponding to the model fit for every individual}
+\item{Pearson}{Pearson's R^2 corresponding to the model fit for every individual}
 }
 \description{
 Performs the nonlinear least squares (NLS) regression method for the cosine
 model, with the proposed initialization for all the parameters. It fits the NLS method
 as required, and then computes different quantities for the birth seasonality estimates
 corresponding to different individuals.
+}
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+makeFits(armenia_split)
 }

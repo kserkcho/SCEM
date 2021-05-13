@@ -11,9 +11,20 @@ convertParameters(curve)
 parameter estimates - amplitude, intercept, frequency, phase.}
 }
 \value{
-A list of estimated parameters for the cosine model.
+A list containing the following components:
+
+\item{amplitude}{estimated amplitude}
+\item{intercept}{estimated intercept}
+\item{x0}{I am not sure}
+\item{X}{I am not sure}
+\item{birth}{birth seasonality estimate}
 }
 \description{
 This function converts the estimated parameters from the NLS model fit to the
 appropriate parameter space corresponding to the cosine model proposed by Balasse et al.
+}
+\examples{
+armenia_split = split(armenia,f = armenia$ID)
+curve = sineFit(armenia_split)
+convertParameters(curve)
 }

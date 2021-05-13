@@ -14,9 +14,27 @@
 #'
 #' @export
 #'
-#' @return A data frame with the estimated parameters in the model, birth seasonality estimate,
-#' predicted/observed minimum/maximum for the oxygen isotope variable, mean squared error
-#' and Pearson's R^2 corresponding to the model fit for every individual.
+#' @returns
+#'
+#' A data frame containing the following components:
+#'
+#' \item{amplitude}{estimated amplitude}
+#' \item{intercept}{estimated intercept}
+#' \item{x0}{I am not sure}
+#' \item{X}{I am not sure}
+#' \item{birth}{birth seasonality estimate}
+#' \item{predictedMin}{predicted minimum for the oxygen isotope variable}
+#' \item{predictedMax}{predicted maximum for the oxygen isotope variable}
+#' \item{observedMin}{observed minimum for the oxygen isotope variable}
+#' \item{observedMax}{observed minimum for the oxygen isotope variable}
+#' \item{MSE}{mean squared error corresponding to the model fit for every individual}
+#' \item{Pearson}{Pearson's R^2 corresponding to the model fit for every individual}
+#'
+#' @examples
+#' armenia_split = split(armenia,f = armenia$ID)
+#' amp = seq(1,10,by=0.5)
+#' int = seq(-25,0,by=0.5)
+#' makeFitsWrong(armenia_split,amp[1],int[1])
 
 makeFitsWrong = function(paths,
                          amplitude,
