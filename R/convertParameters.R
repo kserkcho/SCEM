@@ -23,7 +23,7 @@
 #'
 #' @examples
 #' armenia_split = split(armenia,f = armenia$ID)
-#' curve = sineFit(armenia_split)
+#' curve = sineFit(armenia_split[[1]])
 #' convertParameters(curve)
 
 convertParameters = function(curve) {

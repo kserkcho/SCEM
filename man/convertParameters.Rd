@@ -25,6 +25,6 @@ appropriate parameter space corresponding to the cosine model proposed by Balass
 }
 \examples{
 armenia_split = split(armenia,f = armenia$ID)
-curve = sineFit(armenia_split)
+curve = sineFit(armenia_split[[1]])
 convertParameters(curve)
 }
