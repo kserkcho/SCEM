@@ -19,8 +19,8 @@
 #'
 #' \item{amplitude}{estimated amplitude}
 #' \item{intercept}{estimated intercept}
-#' \item{x0}{I am not sure}
-#' \item{X}{I am not sure}
+#' \item{x0}{delay of the data}
+#' \item{X}{period of the data}
 #' \item{birth}{birth seasonality estimate}
 #' \item{predictedMin}{predicted minimum for the oxygen isotope variable}
 #' \item{predictedMax}{predicted maximum for the oxygen isotope variable}

@@ -15,8 +15,8 @@ A list containing the following components:
 
 \item{amplitude}{estimated amplitude}
 \item{intercept}{estimated intercept}
-\item{x0}{I am not sure}
-\item{X}{I am not sure}
+\item{x0}{delay of the data}
+\item{X}{period of the data}
 \item{birth}{birth seasonality estimate}
 }
 \description{
