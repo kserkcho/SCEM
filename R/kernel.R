@@ -16,7 +16,7 @@
 #' Epanechnikov, V. A. (1969). Non-parametric estimation of a multivariate probability density. Theory of Probability and its Applications, 14(1), 153-6.
 
 kernel <- function(v){
-
+  if (! is.atomic(v) || is.list(v)) {stop('v is not a vector')}
   return(0.75*(1-v^2)*(abs(v)<1))
 
 }

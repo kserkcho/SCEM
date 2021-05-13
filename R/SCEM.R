@@ -29,7 +29,9 @@
 
 SCEM <- function(paths,
                  bandwidth){
-
+  for(i in 1:length(paths)){
+    if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain columns named distance and oxygen')}
+  }
   cluster = SCalgo(paths,bandwidth = bandwidth)
   groups = cluster
   cosine = makeFits(paths)
@@ -39,6 +41,7 @@ SCEM <- function(paths,
   for (k in 1:gnum){
     S = groups[[k]]
     for (jj in 1:length(S)){
+
       paths[[S[jj]]]$zval = paths[[S[jj]]]$distance/period[S[jj]]
     }
     fulldata = do.call(rbind,paths[S])

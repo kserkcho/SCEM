@@ -28,6 +28,9 @@
 calculateRSS <- function(paths,
                          S,
                          bandwidth){
+  for(i in 1:length(paths)){
+    if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
+  }
 
   RSS = numeric(length(S))
   for (i in 1:length(S)){
