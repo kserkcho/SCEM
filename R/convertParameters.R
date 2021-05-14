@@ -28,7 +28,7 @@
 
 convertParameters = function(curve) {
 
-  coefs = coef(curve)
+  coefs = stats::coef(curve)
   amplitude = coefs['amplitude']
   intercept = coefs['intercept']
   freq = coefs['frequency']
