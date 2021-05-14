@@ -17,7 +17,7 @@
 
 kernel <- function(v){
   if (! is.atomic(v) || is.list(v)) {stop('v is not a vector')}
-  if (any(is.na(y))) {stop('v has NA values')}
+  if (any(is.na(v))) {stop('v has NA values')}
   return(0.75*(1-v^2)*(abs(v)<1))
 
 }
