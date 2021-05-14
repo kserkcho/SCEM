@@ -28,15 +28,15 @@
 
 convertParameters = function(curve) {
 
-  coefs = stats::coef(curve)
-  amplitude = stats::coefs['amplitude']
-  intercept = stats::coefs['intercept']
-  freq = stats::coefs['frequency']
-  phase = stats::coefs['phase']
+  coefs = coef(curve)
+  amplitude = coefs['amplitude']
+  intercept = coefs['intercept']
+  freq = coefs['frequency']
+  phase = coefs['phase']
 
   # ensure that X is positive (sine is an odd function)
-  if (stats::coefs['amplitude']<0){
-    amplitude = - stats::coefs['amplitude']
+  if (coefs['amplitude']<0){
+    amplitude = - coefs['amplitude']
     phase = phase - pi
   }
   if (freq<0){
