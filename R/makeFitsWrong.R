@@ -8,9 +8,9 @@
 #' @param paths A list of data frames, where each frame contains the data for one individual. Every
 #' data frame should have two columns with names 'distance' and 'oxygen'.
 #'
-#' @param amplitude A number, corresponding to a given value for the amplitude parameter.
+#' @param amplitude Initial value for the amplitude parameter.
 #'
-#' @param intercept A number, corresponding to a given value for the intercept parameter.
+#' @param intercept Initial value for the intercept parameter.
 #'
 #' @export
 #'
@@ -39,6 +39,11 @@
 makeFitsWrong = function(paths,
                          amplitude,
                          intercept) {
+  for(i in 1:length(paths)){
+    if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain columns named distance and oxygen')}
+  }
+  if (! is.atomic(amplitude) || !length(amplitude)==1) {stop('amplitude needs to be a single value')}
+  if (! is.atomic(intercept) || !length(intercept)==1) {stop('intercept needs to be a single value')}
 
   fits = c()
   for(i in 1:length(paths)) {

@@ -29,6 +29,7 @@ EstTrend <- function(y,
 
   if (! is.atomic(y) || is.list(y)) {stop('y is not a vector')}
   if (! is.atomic(time) || is.list(time)) {stop('time is not a vector')}
+  if (! is.atomic(bandwidth) || !length(bandwidth)==1) {stop('bandwidth needs to be a single value')}
 
   n = length(y)
   bn = n^{bandwidth}

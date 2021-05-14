@@ -10,9 +10,9 @@ sineFitWrong(data, amplitude, intercept)
 \item{data}{A data frame that contains the data for one individual. There should be two columns
 with names 'distance' and 'oxygen'.}
 
-\item{amplitude}{A number, corresponding to a given value for the amplitude parameter.}
+\item{amplitude}{Initial value for the amplitude parameter.}
 
-\item{intercept}{A number, corresponding to a given value for the intercept parameter.}
+\item{intercept}{Initial value for the intercept parameter.}
 }
 \value{
 A fitted model object from the nls function in R:

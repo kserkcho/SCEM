@@ -7,9 +7,9 @@
 #' @param data A data frame that contains the data for one individual. There should be two columns
 #' with names 'distance' and 'oxygen'.
 #'
-#' @param amplitude A number, corresponding to a given value for the amplitude parameter.
+#' @param amplitude Initial value for the amplitude parameter.
 #'
-#' @param intercept A number, corresponding to a given value for the intercept parameter.
+#' @param intercept Initial value for the intercept parameter.
 #'
 #' @export
 #'
@@ -40,6 +40,10 @@
 sineFitWrong = function(data,
                         amplitude,
                         intercept) {
+
+  if (!any(colnames(data)==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
+  if (! is.atomic(amplitude) || !length(amplitude)==1) {stop('amplitude needs to be a single value')}
+  if (! is.atomic(intercept) || !length(intercept)==1) {stop('intercept needs to be a single value')}
 
   frequency = 2*pi/max(data$distance)
   model = lm(oxygen ~ sin(frequency*distance) + cos(frequency*distance),data = data)

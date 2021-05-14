@@ -21,9 +21,12 @@
 
 SCalgo <- function(paths,
                    bandwidth){
+
   for(i in 1:length(paths)){
     if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain columns named distance and oxygen')}
   }
+  if (! is.atomic(bandwidth) || !length(bandwidth)==1) {stop('bandwidth needs to be a single value')}
+
   p = length(paths)
   U = 1:p
   S = list()

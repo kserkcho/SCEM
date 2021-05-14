@@ -10,9 +10,9 @@ makeFitsWrong(paths, amplitude, intercept)
 \item{paths}{A list of data frames, where each frame contains the data for one individual. Every
 data frame should have two columns with names 'distance' and 'oxygen'.}
 
-\item{amplitude}{A number, corresponding to a given value for the amplitude parameter.}
+\item{amplitude}{Initial value for the amplitude parameter.}
 
-\item{intercept}{A number, corresponding to a given value for the intercept parameter.}
+\item{intercept}{Initial value for the intercept parameter.}
 }
 \value{
 A data frame containing the following components:

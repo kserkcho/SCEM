@@ -30,6 +30,8 @@ EBIC <- function(paths,
     if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
   }
 
+  if (! is.atomic(bandwidth) || !length(bandwidth)==1) {stop('bandwidth needs to be a single value')}
+
   q = length(partition)
   p = length(paths)
   size = as.numeric(lapply(paths,nrow))

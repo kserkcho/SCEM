@@ -34,6 +34,8 @@ iteration <- function(paths,
     if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
   }
 
+  if (! is.atomic(bandwidth) || !length(bandwidth)==1) {stop('bandwidth needs to be a single value')}
+
   V = numeric()
   backup = U
   while (length(U)>0){

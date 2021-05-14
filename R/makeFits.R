@@ -36,6 +36,10 @@
 
 makeFits = function(paths) {
 
+  for(i in 1:length(paths)){
+    if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain columns named distance and oxygen')}
+  }
+
   fits = c()
   for(i in 1:length(paths)) {
     data = paths[[i]]
