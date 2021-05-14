@@ -51,7 +51,7 @@ makeFits = function(paths) {
     fit$observedMin = min(data$oxygen)
     fit$observedMax = max(data$oxygen)
     fit$MSE = mean((predict(curve) - data$oxygen)^2)
-    fit$PearsonCorrelation = cor(predict(curve),paths[[i]]$oxygen,method = "pearson")
+    fit$PearsonCorrelation = stats::cor(predict(curve),paths[[i]]$oxygen,method = "pearson")
     fits = rbind(fits, as.numeric(fit))
   }
   fits = data.frame(fits)

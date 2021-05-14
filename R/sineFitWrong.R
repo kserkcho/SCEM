@@ -47,13 +47,13 @@ sineFitWrong = function(data,
   if (any(is.na(data))) {stop('Data has NA values')}
 
   frequency = 2*pi/max(data$distance)
-  model = lm(oxygen ~ sin(frequency*distance) + cos(frequency*distance),data = data)
+  model = stats::lm(oxygen ~ sin(frequency*distance) + cos(frequency*distance),data = data)
   a = model$coef[2]
   b = model$coef[3]
   phase = -atan(a/b)
 
   start = list(intercept = intercept, amplitude = amplitude,phase = phase,frequency = frequency)
-  curve = nls(oxygen ~ intercept + amplitude*cos(frequency*distance+phase),
+  curve = stats::nls(oxygen ~ intercept + amplitude*cos(frequency*distance+phase),
               data = data,start = start,control = nls.control(warnOnly=TRUE))
 
   return(curve)

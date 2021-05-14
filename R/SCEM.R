@@ -50,7 +50,7 @@ SCEM <- function(paths,
     }
     fulldata = do.call(rbind,paths[S])
     fulldata = fulldata[order(fulldata$zval),]
-    ddd = aggregate(oxygen ~ zval,fulldata,FUN = mean)
+    ddd = stat::aggregate(oxygen ~ zval,fulldata,FUN = mean)
     xx = (ddd$zval)
     yy = ddd$oxygen
     zz = xx[sort.int(yy,decreasing = T,index.return = T)$ix[1:5]]
