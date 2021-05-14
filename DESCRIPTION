@@ -13,10 +13,12 @@ LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
-    rmarkdown 
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Imports: 
     devtools,
     stats
 Depends: 
     R (>= 2.10)
+Config/testthat/edition: 3
