@@ -44,6 +44,7 @@ makeFitsWrong = function(paths,
   }
   if (! is.atomic(amplitude) || !length(amplitude)==1) {stop('amplitude needs to be a single value')}
   if (! is.atomic(intercept) || !length(intercept)==1) {stop('intercept needs to be a single value')}
+  for(i in 1:length(paths)){if (any(is.na(paths[[i]]))) {stop('Data has NAs')}}
 
   fits = c()
   for(i in 1:length(paths)) {

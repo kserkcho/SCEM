@@ -33,8 +33,8 @@ iteration <- function(paths,
   for(i in 1:length(paths)){
     if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
   }
-
   if (! is.atomic(bandwidth) || !length(bandwidth)==1) {stop('bandwidth needs to be a single value')}
+  for(i in 1:length(paths)){if (any(is.na(paths[[i]]))) {stop('Data has NAs')}}
 
   V = numeric()
   backup = U

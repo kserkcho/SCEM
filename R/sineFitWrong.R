@@ -44,6 +44,7 @@ sineFitWrong = function(data,
   if (!any(colnames(data)==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
   if (! is.atomic(amplitude) || !length(amplitude)==1) {stop('amplitude needs to be a single value')}
   if (! is.atomic(intercept) || !length(intercept)==1) {stop('intercept needs to be a single value')}
+  if (any(is.na(data))) {stop('Data has NA values')}
 
   frequency = 2*pi/max(data$distance)
   model = lm(oxygen ~ sin(frequency*distance) + cos(frequency*distance),data = data)

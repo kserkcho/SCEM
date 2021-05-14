@@ -33,6 +33,7 @@
 sineFit = function(data) {
 
   if (!any(colnames(data)==c("distance","oxygen"))) {stop('data frame does not contain distance and oxygen columns')}
+  if (any(is.na(data))) {stop('Data has NA values')}
 
   frequency = 2*pi/max(data$distance)
   model = lm(oxygen ~ sin(frequency*distance) + cos(frequency*distance),data = data)

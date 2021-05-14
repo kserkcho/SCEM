@@ -33,6 +33,7 @@ calculateRSS <- function(paths,
   }
   if (! is.atomic(S) || is.list(S)) {stop('S is not a vector')}
   if (! is.atomic(bandwidth) || !length(bandwidth)==1) {stop('bandwidth needs to be a single value')}
+  for(i in 1:length(paths)){if (any(is.na(paths[[i]]))) {stop('Data has NAs')}}
 
   RSS = numeric(length(S))
   for (i in 1:length(S)){
