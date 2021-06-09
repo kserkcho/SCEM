@@ -18,7 +18,9 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     devtools,
-    stats
+    stats,
+    mathjaxr
+RdMacros: mathjaxr
 Depends: 
     R (>= 2.10)
 Config/testthat/edition: 3

@@ -1,7 +1,6 @@
 #' @title Parameter estimates from a nonlinear lest squares (NLS) fit.
 #'
-#' @description This function converts the estimated parameters from the NLS model fit to the
-#' appropriate parameter space corresponding to the cosine model proposed by Balasse et al.
+#' @description This function converts the estimated parameters from the non-linear least squares (NLS) model fit to the appropriate parameter space corresponding to the cosine model proposed by Balasse et al (2012).
 #'
 #' @param curve A fitted model object from nls function. The fitted model should have the following
 #' parameter estimates - amplitude, intercept, frequency, phase.
@@ -23,7 +22,7 @@
 #'
 #' @examples
 #' armenia_split = split(armenia,f = armenia$ID)
-#' curve = sineFit(armenia_split[[1]])
+#' curve = sineFit(armenia_split[[1]],method = "OLS")
 #' convertParameters(curve)
 
 convertParameters = function(curve) {

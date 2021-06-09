@@ -35,9 +35,9 @@
 #' armenia_split = split(armenia,f = armenia$ID)
 #' amp = seq(1,10,by=0.5)
 #' int = seq(-25,0,by=0.5)
-#' sineFitWrong(armenia_split[[2]],amp[3],int[4])
+#' sine_initial(armenia_split[[2]],amp[3],int[4])
 
-sineFitWrong = function(data,
+sine_initial = function(data,
                         amplitude,
                         intercept) {
 

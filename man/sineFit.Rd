@@ -2,13 +2,19 @@
 % Please edit documentation in R/sineFit.R
 \name{sineFit}
 \alias{sineFit}
-\title{Cosine model fitting with proposed initialization.}
+\title{Cosine model fitting}
 \usage{
-sineFit(data)
+sineFit(data, amplitude = NULL, intercept = NULL, method = c("OLS", "initial"))
 }
 \arguments{
 \item{data}{A data frame that contains the data for one individual. There should be two columns
 with names 'distance' and 'oxygen'.}
+
+\item{amplitude}{Initial value for the amplitude parameter for the \code{method="initial"} method.}
+
+\item{intercept}{Initial value for the intercept parameter for the \code{method="initial"} method.}
+
+\item{method}{A character string giving the initialization for the nonlinear least squares regression. This must be either \code{method="initial"} or \code{method="OLS"}. Default is \code{method="OLS"} method. \code{method="initial"} performs the nonlinear least squares (NLS) regression method for the cosine model without initializing parameter selections. It begins with the given initial values for amplitude and intercept. \code{method="OLS"} uses the least squares estimates (see Chazin et al. 2019) as the initial parameter selection.}
 }
 \value{
 A fitted model object from the nls function in R:
@@ -21,13 +27,14 @@ A fitted model object from the nls function in R:
 \item{control}{the control 'list' used}
 }
 \description{
-Performs the updated nonlinear least squares (NLS) regression method for the cosine
-model proposed by Balasse et al. The method calculates with the proposed initial values at first,
-and then fits the NLS method as required.
+This function performs the updated nonlinear least squares (NLS) regression method for the cosine model (see Chazin et al. 2019).
 }
 \examples{
 armenia_split = split(armenia,f = armenia$ID)
-sineFit(armenia_split[[1]])
+amp = seq(1,10,by=0.5)
+int = seq(-25,0,by=0.5)
+sineFit(armenia_split[[2]],amp[3],int[4],method = "initial")
+sineFit(armenia_split[[1]],method = "OLS")
 }
 \references{
 Florent Baty, Christian Ritz, Sandrine Charles, Martin Brutsche, Jean-Pierre Flandrois, Marie-Laure Delignette-Muller (2015). A Toolbox for Nonlinear Regression in R: The Package nlstools. Journal of Statistical Software, 66(5), 1-21. URL http://www.jstatsoft.org/v66/i05/.

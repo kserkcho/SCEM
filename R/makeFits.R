@@ -1,17 +1,17 @@
 #' @title Prepare results for cosine model fit.
 #'
-#' @description Performs the nonlinear least squares (NLS) regression method for the cosine
-#' model, with the proposed initialization for all the parameters. It fits the NLS method
-#' as required, and then computes different quantities for the birth seasonality estimates
-#' corresponding to different individuals.
+#' @description This function performs the nonlinear least squares (NLS) regression method for the cosine model. It fits the NLS method as required, and then computes different quantities for the birth seasonality estimates corresponding to different individuals.
 #'
 #' @param paths A list of data frames, where each frame contains the data for one individual. Every
 #' data frame should have two columns with names 'distance' and 'oxygen'.
 #'
+#' @param amplitude Initial value for the amplitude parameter for the \code{method="initial"} method.
+#'
+#' @param intercept Initial value for the intercept parameter for the \code{method="initial"} method.
+#'
+#' @param method A character string giving the initialization for the nonlinear least squares regression. This must be either \code{method="initial"} or \code{method="OLS"}. Default is \code{method="OLS"} method. \code{method="initial"} performs the nonlinear least squares (NLS) regression method for the cosine model without initializing parameter selections. It begins with the given initial values for amplitude and intercept. \code{method="OLS"} uses the least squares estimates (see Chazin et al. 2019) as the initial parameter selection.
+#'
 #' @export
-#'
-#' @import stats
-#'
 #'
 #' @returns
 #'
@@ -29,35 +29,17 @@
 #' \item{MSE}{mean squared error corresponding to the model fit for every individual}
 #' \item{Pearson}{Pearson's R^2 corresponding to the model fit for every individual}
 #'
-#'
 #' @examples
 #' armenia_split = split(armenia,f = armenia$ID)
-#' makeFits(armenia_split)
+#' amp = seq(1,10,by=0.5)
+#' int = seq(-25,0,by=0.5)
+#' makeFits(armenia_split,amp[1],int[1],method = "initial")
+#' makeFits(armenia_split, method = "OLS")
 
-makeFits = function(paths) {
 
-  for(i in 1:length(paths)){
-    if (!any(colnames(paths[[i]])==c("distance","oxygen"))) {stop('data frame does not contain columns named distance and oxygen')}
-  }
-  for(i in 1:length(paths)){if (any(is.na(paths[[i]]))) {stop('Data has NAs')}}
-
-  fits = c()
-  for(i in 1:length(paths)) {
-    data = paths[[i]]
-    curve = sineFit(data)
-    fit = convertParameters(curve)
-    fit$predictedMin = fit$intercept - abs(fit$amplitude)
-    fit$predictedMax = fit$intercept + abs(fit$amplitude)
-    fit$observedMin = min(data$oxygen)
-    fit$observedMax = max(data$oxygen)
-    fit$MSE = mean((predict(curve) - data$oxygen)^2)
-    fit$PearsonCorrelation = stats::cor(predict(curve),paths[[i]]$oxygen,method = "pearson")
-    fits = rbind(fits, as.numeric(fit))
-  }
-  fits = data.frame(fits)
-  colnames(fits) = c("amplitude","intercept","x0","X","birth","predictedMin",
-                     "predictedMax","observedMin","observedMax","MSE","Pearson")
-
-  return(fits)
-
+makeFits = function(paths,amplitude=NULL,intercept=NULL,method = c("OLS", "initial")){
+  if (method =="OLS") {makeFits_OLS(paths)}
+  else {makeFits_initial(paths,amplitude=amplitude,intercept = intercept)}
 }
+
+

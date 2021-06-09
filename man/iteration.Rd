@@ -23,7 +23,7 @@ A list containing the following components:
   \item{U}{A set of individuals to be used in the next iteration.}
 }
 \description{
-This function performs the iterative step in the proposed method.
+This function performs the iteration step. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.
 }
 \examples{
 armenia_split = split(armenia,f = armenia$ID)

@@ -1,6 +1,6 @@
 #' @title Splitting-Coalescence (SC) algorithm.
 #'
-#' @description Performs the iterative clustering algorithm on the archaeological time series data.
+#' @description This function performs the iterative clustering algorithm on the archaeological time series data. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.
 #'
 #' @param paths A list of data frames, where each frame contains the data for one individual. There
 #' should be two columns with names 'distance' and 'oxygen'.

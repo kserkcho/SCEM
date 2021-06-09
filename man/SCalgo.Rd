@@ -18,7 +18,7 @@ A list of vectors where each vector gives the indexes of the individuals to be a
 in the same cluster.
 }
 \description{
-Performs the iterative clustering algorithm on the archaeological time series data.
+This function performs the iterative clustering algorithm on the archaeological time series data. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.
 }
 \examples{
 armenia_split = split(armenia,f = armenia$ID)

@@ -20,10 +20,25 @@ A list containing the following components:
 \item{groups}{The groups formed by the clustering algorithm}
 }
 \description{
-Performs the clustering algorithm SCEM on the bivariate time series data - where
-one series is for the distance from the cementum-enamel junction, and the other series is for
-the value of the oxygen-18 isotope at that distance - and returns the class-assignments and
-birth seasobality estimates for all the individuals.
+This function performs the clustering algorithm SCEM on the bivariate time series data –
+where one series is the distance from the cementum-enamel junction, and the other series is the value of
+the oxygen-18 isotope at that distance. It returns the class assignments and birth seasonality estimates
+for all the individuals.
+
+The SCEM assumes that the oxygen isotope values \eqn{(z(t))} can be expressed as a function of \eqn{x(t)},
+the natural logarithm of the distance from the CEJ for each of the incremental samples, scaled down by
+the period (\eqn{X}, the length of the tooth crown). In other words,
+
+\loadmathjax
+\mjdeqn{z(t) = f(x(t)/X) + e(t)}{ASCII representation}
+
+where the form of \eqn{f} is unknown and \eqn{e(t)} is an error process.
+Also, following our definition, it assumes that the value of \eqn{x(t)/X} that maximizes \eqn{z(t)} is the estimated birth seasonality.
+
+Birth seasonality is estimated using the combined data from all individuals in a single cluster,
+but birth seasonality estimates for individuals in a cluster are based on individual estimates of the length of the tooth crown (\mjeqn{X_{k}}{ASCII representation}).
+
+For a detailed description of the algorithm, please see Chazin et al. 2019, Supplemental Materials 1.
 }
 \examples{
 armenia_split = split(armenia,f = armenia$ID)

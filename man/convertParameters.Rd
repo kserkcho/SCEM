@@ -20,11 +20,10 @@ A list containing the following components:
 \item{birth}{birth seasonality estimate}
 }
 \description{
-This function converts the estimated parameters from the NLS model fit to the
-appropriate parameter space corresponding to the cosine model proposed by Balasse et al.
+This function converts the estimated parameters from the non-linear least squares (NLS) model fit to the appropriate parameter space corresponding to the cosine model proposed by Balasse et al (2012).
 }
 \examples{
 armenia_split = split(armenia,f = armenia$ID)
-curve = sineFit(armenia_split[[1]])
+curve = sineFit(armenia_split[[1]],method = "OLS")
 convertParameters(curve)
 }

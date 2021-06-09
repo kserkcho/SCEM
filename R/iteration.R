@@ -1,6 +1,6 @@
 #' @title Iteration step for the Splitting-Coalescence-Estimation Method (SCEM).
 #'
-#' @description This function performs the iterative step in the proposed method.
+#' @description This function performs the iteration step. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.
 #'
 #' @param paths A list of data frames, where each frame contains the data for one individual. Every
 #' data frame should have two columns with names 'distance' and 'oxygen'.

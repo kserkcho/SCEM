@@ -2,7 +2,7 @@
 #'
 #' @description The trend function for each individual time series is estimated non-parametrically
 #' by the local linear estimate (as discussed in Fan and Gijbels (1996)). Detailed description can
-#' be found in the supplementary file of the paper.
+#' be found in Chazin et al. 2019, Supplemental Materials 1.
 #'
 #' @param y A vector of time series observations.
 #'
