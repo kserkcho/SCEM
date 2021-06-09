@@ -4,7 +4,7 @@ citEntry(entry="Article",
          title = "New Statistical Approaches to Intra-individual Isotopic Analysis and Modelling of Birth Seasonality in Studies of Herd Animals",
          author = personList(as.person("Hannah Chazin"),
                              as.person("Deb Soudeep"),
-                              as.person(("Srinivasan Arun")),
+                              as.person("Srinivasan Arun")),
          journal      = " Archaeometry",
          year         = "2019",
          volume       = "61",
@@ -13,5 +13,4 @@ citEntry(entry="Article",
          url          = "https://onlinelibrary.wiley.com/doi/10.1111/arcm.12432",
          
          textVersion = 
-         paste("Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019. 'New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.' Archaeometry 61 (2): 478–93.")
-)
+         paste("Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019.", "New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.", "Archaeometry 61 (2): 478–93."))
