@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • SCEM</title>
+<title>Cosine model fitting with proposed initialization. — sine_OLS • SCEM</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,9 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Cosine model fitting with proposed initialization. — sine_OLS" />
+<meta property="og:description" content="Performs the updated nonlinear least squares (NLS) regression method for the cosine
+model (see Chazin et al. 2019)." />
 
 
 
@@ -58,7 +60,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -119,18 +121,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Cosine model fitting with proposed initialization.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/sine_OLS.R'><code>R/sine_OLS.R</code></a></small>
+    <div class="hidden name"><code>sine_OLS.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="SCEM_example.html">SCEM_example</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p>Performs the updated nonlinear least squares (NLS) regression method for the cosine
+model (see Chazin et al. 2019).</p>
     </div>
+
+    <pre class="usage"><span class='fu'>sine_OLS</span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A data frame that contains the data for one individual. There should be two columns
+with names 'distance' and 'oxygen'.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A fitted model object from the nls function in R:</p>
+<dt>m</dt><dd><p>an 'nlsModel' object incorporating the model.</p></dd>
+<dt>convInfo</dt><dd><p>a list with convergence information</p></dd>
+<dt>data</dt><dd><p>the expression that was passed to 'nls' as the data argument. The actual data values are present in the environment of the 'm' component.</p></dd>
+<dt>call</dt><dd><p>the matched call with several components, notably 'algorithm'</p></dd>
+<dt>dataClasses</dt><dd><p>the '"dataClasses"' attribute (if any) of the '"terms"' attribute of the model frame.</p></dd>
+<dt>control</dt><dd><p>the control 'list' used</p></dd>
+
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Florent Baty, Christian Ritz, Sandrine Charles, Martin Brutsche, Jean-Pierre Flandrois, Marie-Laure Delignette-Muller (2015). A Toolbox for Nonlinear Regression in R: The Package nlstools. Journal of Statistical Software, 66(5), 1-21. URL http://www.jstatsoft.org/v66/i05/.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
+<span class='fu'>sine_OLS</span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Nonlinear regression model
+#&gt;   model: oxygen ~ intercept + amplitude * cos(frequency * distance + phase)
+#&gt;    data: data
+#&gt; intercept amplitude     phase frequency 
+#&gt;   -4.2485    5.2653    0.7701    0.1657 
+#&gt;  residual sum-of-squares: 1.371
+#&gt; 
+#&gt; Number of iterations to convergence: 6 
+#&gt; Achieved convergence tolerance: 2.407e-06</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

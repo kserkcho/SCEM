@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Residual sum of squares (RSS) for all time series in a group. — calculateRSS • SCEM</title>
+<title>Prepare results for cosine model fit. — makeFits_OLS • SCEM</title>
 
 
 <!-- jquery -->
@@ -39,17 +39,11 @@
 
 
 
-<meta property="og:title" content="Residual sum of squares (RSS) for all time series in a group. — calculateRSS" />
-<meta property="og:description" content="SCEM uses the residual sum of squares for each group to give a sense of the error in estimation. It is defined by:
-
-
-\[RSS(S_q) = \sum_{k \in S_q} \sum_{i = 1}^{n_k} ||y_{k,i} - \hat{\mu}_{S_q} \left(\frac{i}{n_k}\right) - \hat{c}_{k}||^2\]
-(See Chazin et al. 2019, Supplemental Materials 1).
-The trend function for each individual time series is estimated non-parametrically
-by the local linear estimate (as discussed in Fan and Gijbels (1996)). Then, the common trend
-function for the group is estimated by taking the average over the group. Next, the shift functions
-are estimated as the differences from the individual trend functions and finally, the residual sum
-of squares are calculated  using the original values, the common trend functions and the shifts." />
+<meta property="og:title" content="Prepare results for cosine model fit. — makeFits_OLS" />
+<meta property="og:description" content="Performs the nonlinear least squares (NLS) regression method for the cosine
+model, with the proposed initialization for all the parameters. It fits the NLS method
+as required, and then computes different quantities for the birth seasonality estimates
+corresponding to different individuals." />
 
 
 
@@ -129,25 +123,19 @@ of squares are calculated  using the original values, the common trend functions
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Residual sum of squares (RSS) for all time series in a group.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/calculateRSS.R'><code>R/calculateRSS.R</code></a></small>
-    <div class="hidden name"><code>calculateRSS.Rd</code></div>
+    <h1>Prepare results for cosine model fit.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/makeFits_OLS.R'><code>R/makeFits_OLS.R</code></a></small>
+    <div class="hidden name"><code>makeFits_OLS.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>SCEM uses the residual sum of squares for each group to give a sense of the error in estimation. It is defined by:</p>
-<p><script id="MathJax-script" async src="../../mathjaxr/doc/mathjax/es5/tex-chtml-full.js"></script>
-
-\[RSS(S_q) = \sum_{k \in S_q} \sum_{i = 1}^{n_k} ||y_{k,i} - \hat{\mu}_{S_q} \left(\frac{i}{n_k}\right) - \hat{c}_{k}||^2\]</p>
-<p>(See Chazin et al. 2019, Supplemental Materials 1).</p>
-<p>The trend function for each individual time series is estimated non-parametrically
-by the local linear estimate (as discussed in Fan and Gijbels (1996)). Then, the common trend
-function for the group is estimated by taking the average over the group. Next, the shift functions
-are estimated as the differences from the individual trend functions and finally, the residual sum
-of squares are calculated  using the original values, the common trend functions and the shifts.</p>
+    <p>Performs the nonlinear least squares (NLS) regression method for the cosine
+model, with the proposed initialization for all the parameters. It fits the NLS method
+as required, and then computes different quantities for the birth seasonality estimates
+corresponding to different individuals.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>calculateRSS</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>S</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>makeFits_OLS</span><span class='op'>(</span><span class='va'>paths</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,31 +145,77 @@ of squares are calculated  using the original values, the common trend functions
       <td><p>A list of data frames, where each frame contains the data for one individual. Every
 data frame should have two columns with names 'distance' and 'oxygen'.</p></td>
     </tr>
-    <tr>
-      <th>S</th>
-      <td><p>A vector of integers showing which individuals are considered in the group.</p></td>
-    </tr>
-    <tr>
-      <th>bandwidth</th>
-      <td><p>Denotes the order of the bandwidth that should be used in the estimation process.
-bandwidth = k will mean that the bandwidth is n^k.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A vector of length equal to the group-size, so that each element is the RSS for the
-corresponding individual in the group.</p>
+    <p>A data frame containing the following components:</p>
+<dt>amplitude</dt><dd><p>estimated amplitude</p></dd>
+<dt>intercept</dt><dd><p>estimated intercept</p></dd>
+<dt>x0</dt><dd><p>delay of the data</p></dd>
+<dt>X</dt><dd><p>period of the data</p></dd>
+<dt>birth</dt><dd><p>birth seasonality estimate</p></dd>
+<dt>predictedMin</dt><dd><p>predicted minimum for the oxygen isotope variable</p></dd>
+<dt>predictedMax</dt><dd><p>predicted maximum for the oxygen isotope variable</p></dd>
+<dt>observedMin</dt><dd><p>observed minimum for the oxygen isotope variable</p></dd>
+<dt>observedMax</dt><dd><p>observed minimum for the oxygen isotope variable</p></dd>
+<dt>MSE</dt><dd><p>mean squared error corresponding to the model fit for every individual</p></dd>
+<dt>Pearson</dt><dd><p>Pearson's R^2 corresponding to the model fit for every individual</p></dd>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
-<span class='va'>band</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span>
-<span class='va'>p</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>)</span>
-<span class='fu'>calculateRSS</span><span class='op'>(</span><span class='va'>armenia_split</span>,<span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span>,<span class='va'>band</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1]  87.009179 147.666300  37.260325  99.540946   2.031422 100.162004
-#&gt;  [7]  42.652780  39.822151  41.234838  53.428182  27.614369  74.332299
-#&gt; [13]  75.476085  37.818161 100.357094  41.575878  39.279025  47.961391
-#&gt; [19]  50.839123  58.065549  17.968856  91.033941  57.148805  85.469361</div></pre>
+<span class='fu'>makeFits_OLS</span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: step factor 0.000488281 reduced below 'minFactor' of 0.000976562</span></div><div class='output co'>#&gt;    amplitude intercept         x0         X      birth predictedMin
+#&gt; 1  5.2652994 -4.248525 33.2708773  37.91834 0.87743496    -9.513825
+#&gt; 2  5.9191442 -5.714313  0.7847776  35.38069 0.02218096   -11.633457
+#&gt; 3  3.3246623 -6.738144  9.0470374  22.62969 0.39978616   -10.062806
+#&gt; 4  4.7367622 -5.509659  3.2810551  37.95713 0.08644108   -10.246421
+#&gt; 5  0.6991006 -4.026565  9.9913045  32.96120 0.30312318    -4.725665
+#&gt; 6  4.1794786 -5.118464 19.5194190  33.51158 0.58246789    -9.297942
+#&gt; 7  0.2239461 -9.845539 14.1014168 147.81603 0.09539843   -10.069485
+#&gt; 8  3.3367784 -6.145026 10.4120107  33.13023 0.31427521    -9.481804
+#&gt; 9  3.4307832 -6.294008  9.1121024  29.38078 0.31013816    -9.724792
+#&gt; 10 3.4624988 -6.380318 17.7009474  33.13923 0.53413878    -9.842817
+#&gt; 11 3.7993884 -6.301994 12.6856178  33.51424 0.37851425   -10.101382
+#&gt; 12 4.9377793 -7.423751 12.3397890  35.36795 0.34889751   -12.361531
+#&gt; 13 3.3731318 -5.604018 16.5363477  22.30952 0.74122376    -8.977150
+#&gt; 14 4.6807720 -6.338269  8.8111826  25.27949 0.34855063   -11.019041
+#&gt; 15 4.3225696 -8.183357  0.8511012  30.41354 0.02798428   -12.505927
+#&gt; 16 3.1195383 -6.700140  3.8342428  35.44646 0.10816997    -9.819679
+#&gt; 17 3.3664785 -6.120014 10.1234946  33.96788 0.29803139    -9.486493
+#&gt; 18 3.6488657 -5.760415 11.1946145  30.09531 0.37197210    -9.409281
+#&gt; 19 4.7475694 -7.322764 11.9597362  34.02146 0.35153508   -12.070334
+#&gt; 20 4.0274413 -7.389551 11.1089040  32.89129 0.33774612   -11.416993
+#&gt; 21 3.2221892 -6.548938  9.7099434  29.49489 0.32920766    -9.771127
+#&gt; 22 3.9674723 -5.180679 15.7330178  26.45066 0.59480626    -9.148151
+#&gt; 23 4.0093494 -5.498993 12.1927934  30.00242 0.40639365    -9.508343
+#&gt; 24 4.1528320 -5.817939 31.2651341  40.13802 0.77894059    -9.970771
+#&gt;    predictedMax observedMin observedMax        MSE   Pearson
+#&gt; 1     1.0167739       -9.28       -2.48 0.13712714 0.9897939
+#&gt; 2     0.2048314      -11.34       -0.09 0.10486315 0.9969164
+#&gt; 3    -3.4134819       -9.52       -2.42 0.24706940 0.9752471
+#&gt; 4    -0.7728966      -10.18       -0.69 0.17725811 0.9925065
+#&gt; 5    -3.3274640       -4.65       -2.90 0.20709011 0.7365597
+#&gt; 6    -0.9389852      -10.07       -0.47 0.60311759 0.9716171
+#&gt; 7    -9.6215924      -12.30       -6.22 3.35497392 0.7266128
+#&gt; 8    -2.8082472       -9.37       -1.90 0.47731459 0.9559358
+#&gt; 9    -2.8632250       -9.69       -3.15 0.09364418 0.9924722
+#&gt; 10   -2.9178194       -9.36       -2.36 0.21643700 0.9775559
+#&gt; 11   -2.5026056       -7.88       -2.47 0.07582879 0.9897773
+#&gt; 12   -2.4859720      -11.52       -2.73 0.08274287 0.9954652
+#&gt; 13   -2.2308865       -9.66       -2.88 0.58893347 0.9545514
+#&gt; 14   -1.6574971       -8.04       -1.92 0.19765941 0.9833570
+#&gt; 15   -3.8607874      -12.33       -3.89 0.19330565 0.9889660
+#&gt; 16   -3.5806022       -9.58       -3.19 0.12381115 0.9879239
+#&gt; 17   -2.7535356       -9.41       -2.89 0.12589665 0.9893759
+#&gt; 18   -2.1115496       -9.51       -2.22 0.15829539 0.9882583
+#&gt; 19   -2.5751950      -10.29       -2.56 0.26970116 0.9795975
+#&gt; 20   -3.3621102      -11.45       -3.59 0.10567727 0.9933704
+#&gt; 21   -3.3267489       -8.41       -3.51 0.03810623 0.9933530
+#&gt; 22   -1.2132066       -9.40       -1.41 0.10895676 0.9938152
+#&gt; 23   -1.4896439       -8.81       -1.52 0.32154728 0.9790757
+#&gt; 24   -1.6651069      -10.14       -2.93 0.17874849 0.9841492</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

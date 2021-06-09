@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Iteration step for the Splitting-Coalescence-Estimation Method (SCEM). — iteration" />
-<meta property="og:description" content="This function performs the iterative step in the proposed method." />
+<meta property="og:description" content="This function performs the iteration step. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1." />
 
 
 
@@ -101,7 +101,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/kserkcho/SCEM/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -116,12 +121,12 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Iteration step for the Splitting-Coalescence-Estimation Method (SCEM).</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/iteration.R'><code>R/iteration.R</code></a></small>
     <div class="hidden name"><code>iteration.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function performs the iterative step in the proposed method.</p>
+    <p>This function performs the iteration step. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.</p>
     </div>
 
     <pre class="usage"><span class='fu'>iteration</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>U</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
@@ -148,9 +153,23 @@ bandwidth = k will mean that the bandwidth is n^k.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list of two sets - the first one is a cluster and the second one is the set of
-individuals to be used in the next iteration.</p>
+    <p>A list containing the following components:</p>
+<p></p>
+<dt>S1</dt><dd><p>A set of individuals who are in the cluster</p></dd>
+  <dt>U</dt><dd><p>A set of individuals to be used in the next iteration.</p></dd>
 
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
+<span class='va'>band</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span>
+<span class='va'>p</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>)</span>
+<span class='fu'>iteration</span><span class='op'>(</span><span class='va'>armenia_split</span>,<span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span>,<span class='va'>band</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $S1
+#&gt; [1] 5
+#&gt; 
+#&gt; $U
+#&gt;  [1]  2  4 15  1  6 24 22 13  7 10 16 12  3  8 23  9 17 20 18 19 14 11 21
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

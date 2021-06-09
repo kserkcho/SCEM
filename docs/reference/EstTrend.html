@@ -42,7 +42,7 @@
 <meta property="og:title" content="Estimates the trend function for a time series. — EstTrend" />
 <meta property="og:description" content="The trend function for each individual time series is estimated non-parametrically
 by the local linear estimate (as discussed in Fan and Gijbels (1996)). Detailed description can
-be found in the supplementary file of the paper." />
+be found in Chazin et al. 2019, Supplemental Materials 1." />
 
 
 
@@ -103,7 +103,12 @@ be found in the supplementary file of the paper." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/kserkcho/SCEM/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -118,14 +123,14 @@ be found in the supplementary file of the paper." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Estimates the trend function for a time series.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/EstTrend.R'><code>R/EstTrend.R</code></a></small>
     <div class="hidden name"><code>EstTrend.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>The trend function for each individual time series is estimated non-parametrically
 by the local linear estimate (as discussed in Fan and Gijbels (1996)). Detailed description can
-be found in the supplementary file of the paper.</p>
+be found in Chazin et al. 2019, Supplemental Materials 1.</p>
     </div>
 
     <pre class="usage"><span class='fu'>EstTrend</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>time</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
@@ -152,6 +157,15 @@ bandwidth = k will mean that the bandwidth is n^k.</p></td>
 
     <p>A vector of estimated values for the trend function at the given time-points.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'> <span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
+ <span class='va'>band</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span>
+ <span class='va'>z</span> <span class='op'>=</span> <span class='va'>armenia_split</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>$</span><span class='va'>oxygen</span>
+ <span class='va'>n</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>z</span><span class='op'>)</span>
+ <span class='va'>ndx</span> <span class='op'>=</span> <span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span><span class='op'>)</span><span class='op'>/</span><span class='va'>n</span>
+ <span class='fu'>EstTrend</span><span class='op'>(</span><span class='va'>z</span>,<span class='va'>ndx</span>,<span class='va'>band</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] -2.337246 -4.387957 -5.952830 -7.037858 -7.608749 -7.699147 -7.321368
+#&gt;  [8] -6.386419 -4.934851 -2.954004</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

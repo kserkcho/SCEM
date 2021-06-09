@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Residual sum of squares (RSS) for all time series in a group. — calculateRSS • SCEM</title>
+<title>Cosine model fitting with given initialization for two parameters. — sine_initial • SCEM</title>
 
 
 <!-- jquery -->
@@ -39,17 +39,10 @@
 
 
 
-<meta property="og:title" content="Residual sum of squares (RSS) for all time series in a group. — calculateRSS" />
-<meta property="og:description" content="SCEM uses the residual sum of squares for each group to give a sense of the error in estimation. It is defined by:
-
-
-\[RSS(S_q) = \sum_{k \in S_q} \sum_{i = 1}^{n_k} ||y_{k,i} - \hat{\mu}_{S_q} \left(\frac{i}{n_k}\right) - \hat{c}_{k}||^2\]
-(See Chazin et al. 2019, Supplemental Materials 1).
-The trend function for each individual time series is estimated non-parametrically
-by the local linear estimate (as discussed in Fan and Gijbels (1996)). Then, the common trend
-function for the group is estimated by taking the average over the group. Next, the shift functions
-are estimated as the differences from the individual trend functions and finally, the residual sum
-of squares are calculated  using the original values, the common trend functions and the shifts." />
+<meta property="og:title" content="Cosine model fitting with given initialization for two parameters. — sine_initial" />
+<meta property="og:description" content="Performs the updated nonlinear least squares (NLS) regression method for the cosine
+model proposed by Balasse et al. The method calculates with the proposed initial values at first,
+and then fits the NLS method as required." />
 
 
 
@@ -129,59 +122,65 @@ of squares are calculated  using the original values, the common trend functions
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Residual sum of squares (RSS) for all time series in a group.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/calculateRSS.R'><code>R/calculateRSS.R</code></a></small>
-    <div class="hidden name"><code>calculateRSS.Rd</code></div>
+    <h1>Cosine model fitting with given initialization for two parameters.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/sine_initial.R'><code>R/sine_initial.R</code></a></small>
+    <div class="hidden name"><code>sine_initial.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>SCEM uses the residual sum of squares for each group to give a sense of the error in estimation. It is defined by:</p>
-<p><script id="MathJax-script" async src="../../mathjaxr/doc/mathjax/es5/tex-chtml-full.js"></script>
-
-\[RSS(S_q) = \sum_{k \in S_q} \sum_{i = 1}^{n_k} ||y_{k,i} - \hat{\mu}_{S_q} \left(\frac{i}{n_k}\right) - \hat{c}_{k}||^2\]</p>
-<p>(See Chazin et al. 2019, Supplemental Materials 1).</p>
-<p>The trend function for each individual time series is estimated non-parametrically
-by the local linear estimate (as discussed in Fan and Gijbels (1996)). Then, the common trend
-function for the group is estimated by taking the average over the group. Next, the shift functions
-are estimated as the differences from the individual trend functions and finally, the residual sum
-of squares are calculated  using the original values, the common trend functions and the shifts.</p>
+    <p>Performs the updated nonlinear least squares (NLS) regression method for the cosine
+model proposed by Balasse et al. The method calculates with the proposed initial values at first,
+and then fits the NLS method as required.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>calculateRSS</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>S</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>sine_initial</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>amplitude</span>, <span class='va'>intercept</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>paths</th>
-      <td><p>A list of data frames, where each frame contains the data for one individual. Every
-data frame should have two columns with names 'distance' and 'oxygen'.</p></td>
+      <th>data</th>
+      <td><p>A data frame that contains the data for one individual. There should be two columns
+with names 'distance' and 'oxygen'.</p></td>
     </tr>
     <tr>
-      <th>S</th>
-      <td><p>A vector of integers showing which individuals are considered in the group.</p></td>
+      <th>amplitude</th>
+      <td><p>Initial value for the amplitude parameter.</p></td>
     </tr>
     <tr>
-      <th>bandwidth</th>
-      <td><p>Denotes the order of the bandwidth that should be used in the estimation process.
-bandwidth = k will mean that the bandwidth is n^k.</p></td>
+      <th>intercept</th>
+      <td><p>Initial value for the intercept parameter.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A vector of length equal to the group-size, so that each element is the RSS for the
-corresponding individual in the group.</p>
+    <p>A fitted model object from the nls function in R:</p>
+<dt>m</dt><dd><p>an 'nlsModel' object incorporating the model.</p></dd>
+<dt>convInfo</dt><dd><p>a list with convergence information</p></dd>
+<dt>data</dt><dd><p>the expression that was passed to 'nls' as the data argument. The actual data values are present in the environment of the 'm' component.</p></dd>
+<dt>call</dt><dd><p>the matched call with several components, notably 'algorithm'</p></dd>
+<dt>dataClasses</dt><dd><p>the '"dataClasses"' attribute (if any) of the '"terms"' attribute of the model frame.</p></dd>
+<dt>control</dt><dd><p>the control 'list' used</p></dd>
+
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Florent Baty, Christian Ritz, Sandrine Charles, Martin Brutsche, Jean-Pierre Flandrois, Marie-Laure Delignette-Muller (2015). A Toolbox for Nonlinear Regression in R: The Package nlstools. Journal of Statistical Software, 66(5), 1-21. URL http://www.jstatsoft.org/v66/i05/.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
-<span class='va'>band</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span>
-<span class='va'>p</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>)</span>
-<span class='fu'>calculateRSS</span><span class='op'>(</span><span class='va'>armenia_split</span>,<span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span>,<span class='va'>band</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1]  87.009179 147.666300  37.260325  99.540946   2.031422 100.162004
-#&gt;  [7]  42.652780  39.822151  41.234838  53.428182  27.614369  74.332299
-#&gt; [13]  75.476085  37.818161 100.357094  41.575878  39.279025  47.961391
-#&gt; [19]  50.839123  58.065549  17.968856  91.033941  57.148805  85.469361</div></pre>
+<span class='va'>amp</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span>,by<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span>
+<span class='va'>int</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>25</span>,<span class='fl'>0</span>,by<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span>
+<span class='fu'>sine_initial</span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>,<span class='va'>amp</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span>,<span class='va'>int</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Nonlinear regression model
+#&gt;   model: oxygen ~ intercept + amplitude * cos(frequency * distance + phase)
+#&gt;    data: data
+#&gt; intercept amplitude     phase frequency 
+#&gt;   -5.7143    5.9191   -0.1394    0.1776 
+#&gt;  residual sum-of-squares: 1.049
+#&gt; 
+#&gt; Number of iterations to convergence: 8 
+#&gt; Achieved convergence tolerance: 1.426e-06</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

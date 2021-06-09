@@ -40,10 +40,21 @@
 
 
 <meta property="og:title" content="Splitting-Coalescence-Estimation Method (SCEM) for archaeological time series. — SCEM" />
-<meta property="og:description" content="Performs the clustering algorithm SCEM on the bivariate time series data - where
-one series is for the distance from the cementum-enamel junction, and the other series is for
-the value of the oxygen-18 isotope at that distance - and returns the class-assignments and
-birth seasobality estimates for all the individuals." />
+<meta property="og:description" content="This function performs the clustering algorithm SCEM on the bivariate time series data –
+where one series is the distance from the cementum-enamel junction, and the other series is the value of
+the oxygen-18 isotope at that distance. It returns the class assignments and birth seasonality estimates
+for all the individuals.
+The SCEM assumes that the oxygen isotope values \((z(t))\) can be expressed as a function of \(x(t)\),
+the natural logarithm of the distance from the CEJ for each of the incremental samples, scaled down by
+the period (\(X\), the length of the tooth crown). In other words,
+
+
+\[z(t) = f(x(t)/X) + e(t)\]
+where the form of \(f\) is unknown and \(e(t)\) is an error process.
+Also, following our definition, it assumes that the value of \(x(t)/X\) that maximizes \(z(t)\) is the estimated birth seasonality.
+Birth seasonality is estimated using the combined data from all individuals in a single cluster,
+but birth seasonality estimates for individuals in a cluster are based on individual estimates of the length of the tooth crown (\(X_{k}\)).
+For a detailed description of the algorithm, please see Chazin et al. 2019, Supplemental Materials 1." />
 
 
 
@@ -104,7 +115,12 @@ birth seasobality estimates for all the individuals." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/kserkcho/SCEM/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,15 +135,26 @@ birth seasobality estimates for all the individuals." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Splitting-Coalescence-Estimation Method (SCEM) for archaeological time series.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/SCEM.R'><code>R/SCEM.R</code></a></small>
     <div class="hidden name"><code>SCEM.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Performs the clustering algorithm SCEM on the bivariate time series data - where
-one series is for the distance from the cementum-enamel junction, and the other series is for
-the value of the oxygen-18 isotope at that distance - and returns the class-assignments and
-birth seasobality estimates for all the individuals.</p>
+    <p>This function performs the clustering algorithm SCEM on the bivariate time series data –
+where one series is the distance from the cementum-enamel junction, and the other series is the value of
+the oxygen-18 isotope at that distance. It returns the class assignments and birth seasonality estimates
+for all the individuals.</p>
+<p>The SCEM assumes that the oxygen isotope values \((z(t))\) can be expressed as a function of \(x(t)\),
+the natural logarithm of the distance from the CEJ for each of the incremental samples, scaled down by
+the period (\(X\), the length of the tooth crown). In other words,</p>
+<p><script id="MathJax-script" async src="../../mathjaxr/doc/mathjax/es5/tex-chtml-full.js"></script>
+
+\[z(t) = f(x(t)/X) + e(t)\]</p>
+<p>where the form of \(f\) is unknown and \(e(t)\) is an error process.
+Also, following our definition, it assumes that the value of \(x(t)/X\) that maximizes \(z(t)\) is the estimated birth seasonality.</p>
+<p>Birth seasonality is estimated using the combined data from all individuals in a single cluster,
+but birth seasonality estimates for individuals in a cluster are based on individual estimates of the length of the tooth crown (\(X_{k}\)).</p>
+<p>For a detailed description of the algorithm, please see Chazin et al. 2019, Supplemental Materials 1.</p>
     </div>
 
     <pre class="usage"><span class='fu'>SCEM</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
@@ -149,11 +176,18 @@ should be two columns with names 'distance' and 'oxygen'.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list that contains a data frame and a list of vectors. The data frame has the individual
-information (ID, species, number of observations in the time series), cluster assignment, estimated
-period, delay and the birth seasonality estimate for every individual. The list of vectors gives the
-groups formed by the clustering algorithm in the method.</p>
+    <p>A list containing the following components:</p>
+<dt>results</dt><dd><p>A data frame that has the individual information (ID, species, number of observations in the time series), cluster assignment, estimated period, delay and the birth seasonality estimate for every individual.</p></dd>
+<dt>groups</dt><dd><p>The groups formed by the clustering algorithm</p></dd>
 
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019. “New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.” Archaeometry 61 (2): 478–93.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
+<span class='va'>results</span> <span class='op'>=</span> <span class='fu'>SCEM</span><span class='op'>(</span><span class='va'>armenia_split</span>,bandwidth <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: step factor 0.000488281 reduced below 'minFactor' of 0.000976562</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -40,8 +40,16 @@
 
 
 <meta property="og:title" content="Bayesian Information Criterion (BIC) for a partition. — EBIC" />
-<meta property="og:description" content="This function calculates an extended version of BIC, which is computed using
-a particular weighted average of the total residual sum of squares and the number of clusters." />
+<meta property="og:description" content="This function calculates an extended version of BIC, which is computed using a particular weighted average of the total residual sum of squares and the number of clusters.
+SCEM uses the following equation for the BIC of each partition:
+
+
+\[BIC(P) = (np)\log \left\lbrace\frac{RSS(P)}{np}\right\rbrace + |P|(B_{n}^{-1}-1) \log(nB_{n}),\]
+where \(RSS(P) = \sum_{q=1}^{Q} RSS(S_q)\).
+The sample size of each individual time series (i.e. the number of observations) is denoted by \(n\), but in dealing with archaeological data, not all the time series in a data set will have the same number of observations.
+In order to have a reasonable representative value for the sample size, we have chosen to use the natural arithmetic mean \(n=(n_1+\dots+n_p)/p\).
+\((B_{n}^{-1}-1)\log(nB_{n})\) is the tuning parameter that places the penalty on the number of clusters (also note that the term \(nB_{n}\)).
+Using a different tuning parameter \(\gamma_{n}\) in place of \((B_{n}^{-1}-1)\log(nB_{n})\) allows stronger or weaker penalties on the number of clusters." />
 
 
 
@@ -102,7 +110,12 @@ a particular weighted average of the total residual sum of squares and the numbe
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/kserkcho/SCEM/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -117,13 +130,21 @@ a particular weighted average of the total residual sum of squares and the numbe
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Bayesian Information Criterion (BIC) for a partition.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/EBIC.R'><code>R/EBIC.R</code></a></small>
     <div class="hidden name"><code>EBIC.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function calculates an extended version of BIC, which is computed using
-a particular weighted average of the total residual sum of squares and the number of clusters.</p>
+    <p>This function calculates an extended version of BIC, which is computed using a particular weighted average of the total residual sum of squares and the number of clusters.</p>
+<p>SCEM uses the following equation for the BIC of each partition:</p>
+<p><script id="MathJax-script" async src="../../mathjaxr/doc/mathjax/es5/tex-chtml-full.js"></script>
+
+\[BIC(P) = (np)\log \left\lbrace\frac{RSS(P)}{np}\right\rbrace + |P|(B_{n}^{-1}-1) \log(nB_{n}),\]</p>
+<p>where \(RSS(P) = \sum_{q=1}^{Q} RSS(S_q)\).</p>
+<p>The sample size of each individual time series (i.e. the number of observations) is denoted by \(n\), but in dealing with archaeological data, not all the time series in a data set will have the same number of observations.</p>
+<p>In order to have a reasonable representative value for the sample size, we have chosen to use the natural arithmetic mean \(n=(n_1+\dots+n_p)/p\).</p>
+<p>\((B_{n}^{-1}-1)\log(nB_{n})\) is the tuning parameter that places the penalty on the number of clusters (also note that the term \(nB_{n}\)).
+Using a different tuning parameter \(\gamma_{n}\) in place of \((B_{n}^{-1}-1)\log(nB_{n})\) allows stronger or weaker penalties on the number of clusters.</p>
     </div>
 
     <pre class="usage"><span class='fu'>EBIC</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>partition</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
@@ -152,6 +173,12 @@ bandwidth = k will mean that the bandwidth is n^k.</p></td>
 
     <p>Value of the extended BIC function for the partition.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
+<span class='va'>band</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span>
+<span class='va'>p</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>armenia_split</span><span class='op'>)</span>
+<span class='fu'>EBIC</span><span class='op'>(</span><span class='va'>armenia_split</span>,<span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span>,<span class='va'>band</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 69.70434</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Splitting-Coalescence (SC) algorithm. — SCalgo" />
-<meta property="og:description" content="Performs the iterative clustering algorithm on the archaeological time series data." />
+<meta property="og:description" content="This function performs the iterative clustering algorithm on the archaeological time series data. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1." />
 
 
 
@@ -101,7 +101,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/kserkcho/SCEM/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -116,12 +121,12 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Splitting-Coalescence (SC) algorithm.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/kserkcho/SCEM/blob/master/R/SCalgo.R'><code>R/SCalgo.R</code></a></small>
     <div class="hidden name"><code>SCalgo.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Performs the iterative clustering algorithm on the archaeological time series data.</p>
+    <p>This function performs the iterative clustering algorithm on the archaeological time series data. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.</p>
     </div>
 
     <pre class="usage"><span class='fu'>SCalgo</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>bandwidth</span><span class='op'>)</span></pre>
@@ -146,6 +151,11 @@ should be two columns with names 'distance' and 'oxygen'.</p></td>
     <p>A list of vectors where each vector gives the indexes of the individuals to be assigned
 in the same cluster.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>armenia_split</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>armenia</span>,f <span class='op'>=</span> <span class='va'>armenia</span><span class='op'>$</span><span class='va'>ID</span><span class='op'>)</span>
+<span class='va'>band</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.33</span>
+<span class='va'>results</span> <span class='op'>=</span> <span class='fu'>SCalgo</span><span class='op'>(</span><span class='va'>armenia_split</span>,bandwidth <span class='op'>=</span> <span class='va'>band</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
