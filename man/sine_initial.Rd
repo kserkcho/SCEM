@@ -26,7 +26,7 @@ A fitted model object from the nls function in R:
 }
 \description{
 Performs the updated nonlinear least squares (NLS) regression method for the cosine
-model proposed by Balasse et al. The method calculates with the proposed initial values at first,
+model proposed by Balasse et al. The method calculates with the proposed initial values for ampliitude and intercept,
 and then fits the NLS method as required.
 }
 \examples{

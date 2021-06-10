@@ -2,7 +2,7 @@
 % Please edit documentation in R/makeFits_OLS.R
 \name{makeFits_OLS}
 \alias{makeFits_OLS}
-\title{Prepare results for cosine model fit.}
+\title{Prepare results for cosine model fit with proposed initialization.}
 \usage{
 makeFits_OLS(paths)
 }

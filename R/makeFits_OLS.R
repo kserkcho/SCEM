@@ -1,4 +1,4 @@
-#' @title Prepare results for cosine model fit.
+#' @title Prepare results for cosine model fit with proposed initialization.
 #'
 #' @description Performs the nonlinear least squares (NLS) regression method for the cosine
 #' model, with the proposed initialization for all the parameters. It fits the NLS method
