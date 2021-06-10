@@ -2,7 +2,11 @@ Package: SCEM
 Type: Package
 Title: Splitting-Coalescence-Estimation Method
 Version: 0.1.0
-Author: Hannah Chazin, Soudeep Deb, Joshua Falk, Arun Srinivasan
+Authors@R: c(   person("Hannah","Chazin",role="aut"), 
+                person("Soudeep","Deb",role="aut"),
+                person("Joshua","Falk",role="aut"),
+                person("Arun","Srinivasan",role="aut")
+                person("Kyung Serk","Cho",role="cre")   )
 Maintainer: Kyung Serk Cho <kyslf1994@gmail.com>
 Description: We introduce improved methods for statistically assessing birth seasonality and intra-annual variation in &delta;<sup>18</sup>O from faunal tooth enamel.    The first method estimates input parameters for use with a previously-developed parametric approach (Tornero et al., 2013). The relevant code for this approach is `makeFits_OLS.R`, while `makeFits_initial.R` is the code to implement the same method but with given initial conditions for two parameters. The latter can be used to show the disadvantage of the existing approach.    The second method we propose is a new idea that uses a nonparametric clustering procedure to group individuals with similar time series data and estimate birth seasonality based on the clusters. This method is more efficient across different scenarios, especially when less of the tooth row is preserved. The new approach offers a high level of statistical rigor and flexibility in dealing with the time series data produced through intra-individual sampling in isotopic analysis. 
 License: GPL-3
