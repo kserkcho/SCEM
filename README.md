@@ -30,10 +30,11 @@ tooth enamel.
 
 The first method estimates input parameters for use with a
 previously-developed parametric approach (Tornero et al., 2013). The
-relevant code for this approach is `makeFits.R`, while `makeFitsWrong.R`
-is the code to implement the same method but with given initial
-conditions for two parameters. The latter can be used to show the
-disadvantage of the existing approach.
+relevant code for this approach is `makeFits_OLS.R`, while
+`makeFits_initial.R` is the code to implement the same method but with
+given initial conditions for two parameters. and can be used to use
+respective methods. The latter can be used to show the disadvantage of
+the existing approach.
 
 The second method we propose is a new idea that uses a nonparametric
 clustering procedure to group individuals with similar time series data
