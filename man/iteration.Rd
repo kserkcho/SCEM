@@ -26,8 +26,10 @@ A list containing the following components:
 This function performs the iteration step. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.
 }
 \examples{
+\dontrun{
 armenia_split = split(armenia,f = armenia$ID)
 band = -0.33
 p = length(armenia_split)
 iteration(armenia_split,1:p,band)
+}
 }
