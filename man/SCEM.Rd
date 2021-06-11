@@ -41,8 +41,10 @@ but birth seasonality estimates for individuals in a cluster are based on indivi
 For a detailed description of the algorithm, please see Chazin et al. 2019, Supplemental Materials 1.
 }
 \examples{
+\dontrun{
 armenia_split = split(armenia,f = armenia$ID)
 results = SCEM(armenia_split,bandwidth = -0.33)
+}
 }
 \references{
 Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019. “New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.” Archaeometry 61 (2): 478–93.

@@ -38,8 +38,10 @@
 #' @references Chazin, Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. 2019. “New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.” Archaeometry 61 (2): 478–93.
 #'
 #' @examples
+#' \dontrun{
 #' armenia_split = split(armenia,f = armenia$ID)
 #' results = SCEM(armenia_split,bandwidth = -0.33)
+#' }
 
 
 SCEM <- function(paths,

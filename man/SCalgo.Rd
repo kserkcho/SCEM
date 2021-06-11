@@ -21,7 +21,9 @@ in the same cluster.
 This function performs the iterative clustering algorithm on the archaeological time series data. Detailed description can be found in Chazin et al. 2019, Supplemental Materials 1.
 }
 \examples{
+\dontrun{
 armenia_split = split(armenia,f = armenia$ID)
 band = -0.33
 results = SCalgo(armenia_split,bandwidth = band)
+}
 }

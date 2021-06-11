@@ -14,9 +14,11 @@
 #' in the same cluster.
 #'
 #' @examples
+#' \dontrun{
 #' armenia_split = split(armenia,f = armenia$ID)
 #' band = -0.33
 #' results = SCalgo(armenia_split,bandwidth = band)
+#' }
 
 
 SCalgo <- function(paths,

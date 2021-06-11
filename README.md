@@ -22,8 +22,8 @@ devtools::install_github("kserkcho/SCEM")
 
 ## Authors
 
-[Hannah Chazin](http://www.hannah-chazin.com/), [Soudeep
-Deb](http://soudeepd.github.io/), [Joshua
+[Hannah Chazin](https://www.hannah-chazin.com/), [Soudeep
+Deb](https://soudeepd.github.io/), [Joshua
 Falk](http://home.uchicago.edu/~jsfalk/), Arun Srinivasan
 
 ## Methods

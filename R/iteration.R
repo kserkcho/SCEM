@@ -21,10 +21,12 @@
 #'   \item{U}{A set of individuals to be used in the next iteration.}
 #'
 #' @examples
+#' \dontrun{
 #' armenia_split = split(armenia,f = armenia$ID)
 #' band = -0.33
 #' p = length(armenia_split)
 #' iteration(armenia_split,1:p,band)
+#' }
 
 
 iteration <- function(paths,
