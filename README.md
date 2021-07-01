@@ -8,8 +8,8 @@
 # SCEM
 
 This package is build to perform the Splitting-Coalescence-Estimation
-Method (cf. Chazin et al., 2019) to model birth seasonality in studies
-of herd animals.
+Method (cf.Chazin et al., 2019) to model birth seasonality in studies of
+herd animals.
 
 ## Installation
 
@@ -48,7 +48,7 @@ estimation of birth seasonality is semi-parametric and will not return
 valid results for non-sinusoidal time series; 2) A simulation study
 suggests that the SCEM provides accurate estimates of birth seasonality
 in second molars as long as the tooth enamel has more than 50% of the
-original crown height present (Chazin et al. 2019, Table 1).
+original crown height present (Chazin et al.2019, Table 1).
 
 The second method estimates input parameters for use with a
 previously-developed parametric approach (Tornero et al., 2013). The
@@ -68,8 +68,8 @@ are used internally in the above-mentioned functions.
 
 For any inquiries or questions related to the package, please contact
 Kyung Serk Cho (<kyslf1994@gmail.com>). Regarding questions about
-methodology, you can also contact us at Dr. Hannah Chazin
-(<h.chazin@columbia.edu>) or Dr. Deb Soudeep (<sdeb@uchicago.edu>).
+methodology, you can also contact us at Dr.Hannah Chazin
+(<h.chazin@columbia.edu>) or Dr.Deb Soudeep (<sdeb@uchicago.edu>).
 
 ## Reference
 

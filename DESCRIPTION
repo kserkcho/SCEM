@@ -8,7 +8,7 @@ Authors@R: c(   person("Hannah","Chazin",role="aut",email = "h.chazin@columbia.e
                 person("Arun","Srinivasan",role="aut"),
                 person("Kyung Serk","Cho",role="cre",email="kyslf1994@gmail.com")   )
 Maintainer: Kyung Serk Cho <kyslf1994@gmail.com>
-Description: Chazin Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan (2019) “New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals.” <https://doi.org/10.1111/arcm.12432>
+Description: We introduce improved methods for statistically assessing birth seasonality and intra-annual variation in $\delta^{18}O$ from faunal tooth enamel. Detailed description can be found here: Chazin Hannah, Soudeep Deb, Joshua Falk, and Arun Srinivasan. (2019) "New Statistical Approaches to Intra-Individual Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd Animals." <doi:https://doi.org/10.1111/arcm.12432>
 License: GPL-3
 URL: https://github.com/kserkcho/SCEM
 BugReports: https://github.com/kserkcho/SCEM/issues

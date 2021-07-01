@@ -61,7 +61,7 @@ title(xlab = "estimated birth seasonality from cosine method",ylab = "estimated 
 # Plotting the graphs of the clusters for Armenia data
 
 gnum = max(results$results$Cluster)
-par(mar=c(1.5,1.5,1,1), mfrow=c(2,2),oma = c(4, 4, 1, 1))
+oldpar = par(mar=c(1.5,1.5,1,1), mfrow=c(2,2),oma = c(4, 4, 1, 1))
 for(i in 1:gnum){
   if(length(results$groups[[i]])>1){
     cc = as.character()
@@ -75,6 +75,7 @@ for(i in 1:gnum){
   }
 }
 title(xlab = "distance from CEJ (mm)",ylab = expression(delta^18*O[VPDB]*' (per mil)'),outer = TRUE, line = 2)
+par(oldpar)
 ```
 
 
@@ -108,8 +109,9 @@ for (i in 1:length(armenia)){
 
 # Plots of the model fits to show the sensitivity to initial conditions
 
-par(mfrow = c(1,2),mar = c(4,4,1,1))
+oldpar2 = par(mfrow = c(1,2),mar = c(4,4,1,1))
 plot(birth.means,sqrt(birth.var),xlab = "mean of birth season",ylab = "standard deviation",pch = 19)
 hist(c(cosfit.R^2),25,freq = F,xlab = "R-squared value",main = "")
+par(oldpar2)
 ```
 ```
