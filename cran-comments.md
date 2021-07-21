@@ -1,6 +1,6 @@
 ## Third submission
 
-Comments:
+This is a resubmission. In this version I have:
 
 Fixed:
 Problem: Found the following (possibly) invalid file URIs, 
