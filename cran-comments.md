@@ -3,6 +3,34 @@
 This is a resubmission. In this version I have:
 
 Fixed:
+
+Problem: $\delta^{18}O$ This does not work in the description text, please omit such markups.
+Solution: removed it
+
+Problem: Please always make sure to reset to user's options(), working directory or par() after you changed it in examples and vignettes and demos.
+e.g.:
+oldpar2= par(mfrow = c(1,2),mar = c(4,4,1,1))
+...
+par(oldpar2)
+Solution: revised it
+
+Comments: Regarding the references: You can just add your reference in the form <doi:prefix/suffix> to the description field and it should work. Maybe you forgot the period "." after the reference?
+Solution: added the reference
+
+Remains unfixed:
+
+Comments: If you use a package which is only needed in examples, please list it in
+'Suggests' and wrap these examples in if(requireNamespace("pkgname")){}
+instead.
+
+Response: I am only using the proposed package (SCEM) in the example, do I still need to wrap it? Thank you.
+
+
+## Third submission
+
+This is a resubmission. In this version I have:
+
+Fixed:
 Problem: Found the following (possibly) invalid file URIs, 
 Solution: removed URIs
 
