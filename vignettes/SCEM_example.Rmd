@@ -26,6 +26,7 @@ library(SCEM)
 ## Read the data file
 
 ```{r}
+data(armenia)
 oxy <- armenia
 armenia = split(oxy,f = oxy$ID)
 ```
