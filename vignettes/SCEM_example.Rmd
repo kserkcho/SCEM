@@ -114,5 +114,6 @@ oldpar2= par(mfrow = c(1,2),mar = c(4,4,1,1))
 plot(birth.means,sqrt(birth.var),xlab = "mean of birth season",ylab = "standard deviation",pch = 19)
 hist(c(cosfit.R^2),25,freq = F,xlab = "R-squared value",main = "")
 par(oldpar2)
+
 ```
 
