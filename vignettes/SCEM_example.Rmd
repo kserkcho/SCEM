@@ -115,5 +115,6 @@ plot(birth.means,sqrt(birth.var),xlab = "mean of birth season",ylab = "standard 
 hist(c(cosfit.R^2),25,freq = F,xlab = "R-squared value",main = "")
 par(oldpar2)
 
+
 ```
 
