@@ -1,7 +1,7 @@
 Package: SCEM
 Type: Package
 Title: Splitting-Coalescence-Estimation Method
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(   person("Hannah","Chazin",role="aut",email = "h.chazin@columbia.edu"), 
                 person("Soudeep","Deb",role="aut",email = "sdeb@uchicago.edu"),
                 person("Joshua","Falk",role="aut"),
