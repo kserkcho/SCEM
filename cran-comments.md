@@ -1,3 +1,9 @@
+## Sixth submission
+
+Problem: The linux check provided a warning sign. 
+
+Solution: removedd install_github in the SCEM_example.Rmd
+
 ## Fifth submission
 
 Fixed:
